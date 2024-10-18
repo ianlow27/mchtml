@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const mchtml= "|\
+!This is line 1|\
+!This is line 2|\
+!This is line 3|\
+//-------------------------|\
+[main=''] |\
+  |\
+[menu='']|\
+ |\
+ |\
+[button='']Home[/button]|\
+ |\
+ |\
+[button='id:btnsettings; onclick:page(id=settings); ']Settings[/button]|\
+ |\
+ |\
+[/menu]|\
+|\
+[/main]|\
+//-------------------------|\
+[page='id:settings; |\
+        background-color:#aaffaa;        |\
+        ']|\
+|\
+|\
+[/page]|\
+//-------------------------|\
+[function='id:;']|\
+|\
+[/function]|\
+|\
+";
+const arr1 = mchtml.split(/\|/);
+for(let i=0; i<arr1.length; i++){
+  console.log(arr1[i]);
+  if(arr1[i].substr(0,1)=="!"){
+    let dv1 = document.createElement('div');
+    dv1.textContent=arr1[i].substr(1);
+    dv1.id='dv'+i;
+    document.body.appendChild(dv1);
+  }
+}//endfor
+</script>
+</body>
+</html>
